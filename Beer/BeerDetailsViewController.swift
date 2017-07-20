@@ -19,6 +19,8 @@ class BeerDetailsViewController: UIViewController {
     
     var beer: Beer!
     
+    var lastTitle: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +28,7 @@ class BeerDetailsViewController: UIViewController {
             lblNome.text = beer.name
             lblTagline.text = beer.tagline
             tvDescricao.text = beer.description
-            if let abv = beer._abv {
+            if let abv = beer.abv {
                 lblAbv.text = "\(abv)"
             }
             if let ibu = beer.ibu {
@@ -34,7 +36,12 @@ class BeerDetailsViewController: UIViewController {
             }
             ivFoto.image = beer.image_view?.image
         }
+        lastTitle = self.navigationController?.navigationBar.topItem?.title
         self.navigationController?.navigationBar.topItem?.title = ""
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = lastTitle
     }
 
 }

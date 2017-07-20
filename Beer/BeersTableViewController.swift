@@ -49,7 +49,7 @@ class BeersTableViewController: UITableViewController {
         
         let beer = dataSource[indexPath.row]
         cell.name.text = beer.name
-        if let abv = beer._abv {
+        if let abv = beer.abv {
             cell.teor.text = "\(abv)"
         }
         if beer.image_view == nil {

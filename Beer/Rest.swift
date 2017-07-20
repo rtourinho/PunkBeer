@@ -70,7 +70,7 @@ class REST {
                             beer.id = id
                         }
                         if let abv = item["abv"] as? Double {
-                            beer._abv = abv
+                            beer.abv = abv
                         }
                         if let ibu = item["ibu"] as? Double {
                             beer.ibu = ibu
